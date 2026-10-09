@@ -1,0 +1,8 @@
+{
+  "epics": 10,
+  "tasks": 36,
+  "qa_cases": 26,
+  "artifacts": "Jira CSV + AgileTest draft CSV + Python/Jenkins repo starter",
+  "jira_created": false,
+  "github_created": false
+}

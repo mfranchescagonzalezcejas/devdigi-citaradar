@@ -1,0 +1,1 @@
+"""CitaRadar desktop appointment assistant (prototype core)."""

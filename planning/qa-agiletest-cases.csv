@@ -1,0 +1,27 @@
+﻿External ID,Test Case Name,Preconditions,Test Steps,Expected Result,Suite,Priority
+FORM-001,Código postal y tipo de oficina,Código postal válido; dependencia oficina cargas,Elegir CP y tipo,Aparecen tipos válidos y puede continuar,Smoke,High
+FORM-002,Trámite con un único subtrámite,Portal simulado con solo un subtrámite,Seleccionar trámite,Subtrámite único seleccionado sin preguntar,Smoke,High
+FORM-003,Trámite con múltiples subtrámites,Portal con 3 subtrámites,Seleccionar trámite y preferencia,Se elige la opción válida; no hay stale selection,Regression,Medium
+FORM-004,Trámite sin campo de subtrámite,Trámite que no genera subtrámite,Elegir trámite,Flujo no exige subtrámite inexistente,Regression,Medium
+FORM-005,Trámite cambia opciones disponibles,Cambiar de un trámite a otro,Inspeccionar nueva lista,Subtrámite anterior queda invalidado,Regression,Medium
+FORM-006,NIF/NIE no aparece en logs,Datos ficticios en fixture,Rellenar identificador de prueba y revisar salida,No aparece valor de identificador en log/screenshot,Smoke,High
+CHANNEL-001,Canales presencial y telefónica,Ambas opciones habilitadas,Entrar a pantalla del mapa,La app pregunta preferencia una sola vez,Smoke,High
+CHANNEL-002,Solo presencial,Solo presencial habilitada,Entrar a mapa,Selecciona presencial sin preguntar,Smoke,High
+CHANNEL-003,Solo telefónica,Solo telefónica habilitada,Entrar a mapa,Selecciona telefónica sin preguntar,Smoke,High
+CHANNEL-004,Sin canales habilitados,Solo placeholder,Entrar a mapa,"Muestra estado bloqueado, sin seleccionar",Regression,Medium
+CHANNEL-005,Ignorar placeholder y disabled,Select con placeholder y disabled,Leer opciones,Ignora placeholder y disabled,Regression,Medium
+CHANNEL-006,Canal objetivo no mezclado en refresh,Ambas opciones; elegida presencial,Alternar con telefónica para refrescar,No avisa por cita solo telefónica,Regression,Medium
+OFFICE-001,Sin citas disponibles,Panel sin disponibilidad,Seleccionar canal objetivo,Detecta NONE; intervalo sin busy loop,Smoke,High
+OFFICE-002,Oficina válida en Barcelona ciudad,Oficina con metadata Barcelona,Detectar horario,Alerta y pausa sin reservar,Smoke,High
+OFFICE-003,Oficina en Terrassa descartada,Oficina disponible en Terrassa,Detectar horario,No alerta como coincidencia Barcelona,Smoke,High
+OFFICE-004,Barcelona provincia no equivale a municipio,Texto provincia Barcelona; municipio Sabadell,Evaluar oficina,Se descarta,Regression,Medium
+OFFICE-005,Oficina con municipio desconocido,Oficina sin datos municipio,Evaluar oficina,No positiva sin verificar; solicita validación,Regression,Medium
+MONITOR-001,Refresco espera actualización efectiva,Resultado previo estable,Cambiar canal; esperar evento de DOM,Timeout controlado si no cambia,Regression,Medium
+MONITOR-002,Canal único no alternable,Solo presencial,Programar reintento,No clic repetitivo a mismo valor,Regression,Medium
+MONITOR-003,Sesión caducada,Fixture sesión expirada,Iniciar comprobación,Pausa; pide autenticación manual,Smoke,High
+MONITOR-004,Error de red / portal,Fixture error 5xx,Comprobar,Backoff y detener al límite,Regression,Medium
+MONITOR-005,Detención manual,Ciclo activo,Pulsar detener,Se cancela sin continuar reserva,Smoke,High
+MONITOR-006,Alerta duplicada,Misma oficina/hora repetida,Reanudar sondeo,No duplicar avisos,Regression,Medium
+SEC-001,Perfil seguro en disco,Perfil ficticio,Guardar y leer config,NIF en storage protegido; nada en TOML plano,Regression,Medium
+SEC-002,No usar claves permanentes,Sesión caducada,Reintentar,No ingresa claves; requiere intervención humana,Regression,Medium
+E2E-001,Portal simulado sin tráfico externo,Intercepción de URL del portal,Correr E2E,No llamadas a sede.sepe.gob.es,Smoke,High

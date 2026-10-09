@@ -1,0 +1,211 @@
+﻿Issue Type,Summary,Description,Priority,Labels,Epic Group,Work Unit
+Epic,E01 — Foundation & governance,"Repository, docs, operating principles and branch controls.
+
+Definition of Done: documented outcome, QA/BDD acceptance criteria, evidence, safe handling of sensitive data.",Medium,"citaradar,epic,v0-1-0",E01,
+Epic,E02 — Desktop UI & local profiles,"Cross-platform desktop control and local encrypted personal info.
+
+Definition of Done: documented outcome, QA/BDD acceptance criteria, evidence, safe handling of sensitive data.",Medium,"citaradar,epic,v0-1-0",E02,
+Epic,E03 — Visible browser & authentication,"Managed browser with manual sign-in, session detection and safe recovery.
+
+Definition of Done: documented outcome, QA/BDD acceptance criteria, evidence, safe handling of sensitive data.",Medium,"citaradar,epic,v0-1-0",E03,
+Epic,E04 — Dynamic SEPE intake form,"Read and select each real postal/procedure/subprocedure option.
+
+Definition of Done: documented outcome, QA/BDD acceptance criteria, evidence, safe handling of sensitive data.",Medium,"citaradar,epic,v0-1-0",E04,
+Epic,E05 — Channel discovery & preference,"Discover dropdown first, ask user only when 2 real options exist.
+
+Definition of Done: documented outcome, QA/BDD acceptance criteria, evidence, safe handling of sensitive data.",Medium,"citaradar,epic,v0-1-0",E05,
+Epic,E06 — Availability & municipality matching,"Extract offices and available times, exclude out-of-city matches.
+
+Definition of Done: documented outcome, QA/BDD acceptance criteria, evidence, safe handling of sensitive data.",Medium,"citaradar,epic,v0-1-0",E06,
+Epic,E07 — Bounded monitoring & notifications,"Rate-limited refresh/pauses, stop safely on match/errors.
+
+Definition of Done: documented outcome, QA/BDD acceptance criteria, evidence, safe handling of sensitive data.",Medium,"citaradar,epic,v0-1-0",E07,
+Epic,"E08 — QA, BDD & simulated portal","Pytest/Playwright and AgileTest Smoke/Sanity/Regression using mock data.
+
+Definition of Done: documented outcome, QA/BDD acceptance criteria, evidence, safe handling of sensitive data.",Medium,"citaradar,epic,v0-1-0",E08,
+Epic,E09 — CI/CD & release quality,"Jenkins required, GitHub Actions optional, packaging and release gates.
+
+Definition of Done: documented outcome, QA/BDD acceptance criteria, evidence, safe handling of sensitive data.",Medium,"citaradar,epic,v0-1-0",E09,
+Epic,E10 — Optional notifications & integrations,"Optional n8n webhooks with no dependency on homelab for local operation.
+
+Definition of Done: documented outcome, QA/BDD acceptance criteria, evidence, safe handling of sensitive data.",Medium,"citaradar,epic,v0-1-0",E10,
+Task,"E01/WU0 — Define scope, safety and acceptance contract","Objective: Document manual sign-in, no automatic booking, no CAPTCHA bypass, no live traffic in CI and consent/terms check.
+
+Acceptance criteria: Readme + ADR + requirement traceability; no unapproved monitoring.
+
+Delivery constraints: WU target <1000 changed lines; PR -> Jenkins -> merge commit; tests and QA evidence; never use real NIF/NIE in public artifacts.",High,"citaradar,v0-1-0,e01,wu,acceptance",E01,WU0
+Task,E01/WU1 — Initialize public repo Python tooling and module layout,"Objective: Create Python >=3.12 package, lint, formatting, type checks, pytest configuration, examples and ignore rules.
+
+Acceptance criteria: New clone can lint, test and build locally without credentials.
+
+Delivery constraints: WU target <1000 changed lines; PR -> Jenkins -> merge commit; tests and QA evidence; never use real NIF/NIE in public artifacts.",High,"citaradar,v0-1-0,e01,wu,acceptance",E01,WU1
+Task,E01/WU2 — Document WU / PR / branching governance,"Objective: Define main/develop protected branches, merge commit only, work units target <1000 changed lines, PR checklist, Jenkins passing.
+
+Acceptance criteria: CONTRIBUTING and PR template document gates.
+
+Delivery constraints: WU target <1000 changed lines; PR -> Jenkins -> merge commit; tests and QA evidence; never use real NIF/NIE in public artifacts.",Medium,"citaradar,v0-1-0,e01,wu,acceptance",E01,WU2
+Task,E02/WU0 — Define desktop information architecture and UX wireframes,"Objective: Draft home/profile/browser/monitor/history states; accessible copy Spanish-first.
+
+Acceptance criteria: Navigation and required screen states approved.
+
+Delivery constraints: WU target <1000 changed lines; PR -> Jenkins -> merge commit; tests and QA evidence; never use real NIF/NIE in public artifacts.",Medium,"citaradar,v0-1-0,e02,wu,acceptance",E02,WU0
+Task,E02/WU1 — Build PySide6 desktop shell,"Objective: Create screen with launch browser, signed-in state, start/pause/stop and status.
+
+Acceptance criteria: UI responsive; stop button always available.
+
+Delivery constraints: WU target <1000 changed lines; PR -> Jenkins -> merge commit; tests and QA evidence; never use real NIF/NIE in public artifacts.",High,"citaradar,v0-1-0,e02,wu,acceptance",E02,WU1
+Task,E02/WU2 — Implement local profile settings & validation,"Objective: Persist post code, office type, preferred procedure/subprocedure and allowlisted municipalities/offices.
+
+Acceptance criteria: Validate inputs and support multiple profiles; no password storage.
+
+Delivery constraints: WU target <1000 changed lines; PR -> Jenkins -> merge commit; tests and QA evidence; never use real NIF/NIE in public artifacts.",High,"citaradar,v0-1-0,e02,wu,acceptance",E02,WU2
+Task,E02/WU3 — Protect NIF/NIE with OS credential store,"Objective: Use optional secure storage; mask UI, exclude identifiers from log and screenshots.
+
+Acceptance criteria: No plaintext IDs in repo/logs and no secrets committed.
+
+Delivery constraints: WU target <1000 changed lines; PR -> Jenkins -> merge commit; tests and QA evidence; never use real NIF/NIE in public artifacts.",High,"citaradar,v0-1-0,e02,wu,acceptance",E02,WU3
+Task,E03/WU0 — Implement visible Playwright Chromium launcher,"Objective: Use dedicated persistent profile; never attach to active personal Zen profile.
+
+Acceptance criteria: Browser visible and independent, manual user control possible.
+
+Delivery constraints: WU target <1000 changed lines; PR -> Jenkins -> merge commit; tests and QA evidence; never use real NIF/NIE in public artifacts.",High,"citaradar,v0-1-0,e03,wu,acceptance",E03,WU0
+Task,E03/WU1 — Detect SEPE login/step transitions,"Objective: Use DOM states instead of URL-only navigation; do not capture passwords.
+
+Acceptance criteria: Sign-in state and missing session recognized without credential prompts.
+
+Delivery constraints: WU target <1000 changed lines; PR -> Jenkins -> merge commit; tests and QA evidence; never use real NIF/NIE in public artifacts.",High,"citaradar,v0-1-0,e03,wu,acceptance",E03,WU1
+Task,E03/WU2 — Pause safely on session expiry / browser crash,"Objective: Surface relogin request, restore flow where possible after re-authentication.
+
+Acceptance criteria: No endless loops or automatic credential submissions.
+
+Delivery constraints: WU target <1000 changed lines; PR -> Jenkins -> merge commit; tests and QA evidence; never use real NIF/NIE in public artifacts.",High,"citaradar,v0-1-0,e03,wu,acceptance",E03,WU2
+Task,E04/WU0 — Document SEPE form selectors via safe inspection,"Objective: Use screenshots and test fixtures; calibrate selectors locally without disclosing DNI.
+
+Acceptance criteria: Selector map versioned and resilient to label changes.
+
+Delivery constraints: WU target <1000 changed lines; PR -> Jenkins -> merge commit; tests and QA evidence; never use real NIF/NIE in public artifacts.",High,"citaradar,v0-1-0,e04,wu,acceptance",E04,WU0
+Task,E04/WU1 — Fill postal code and office type dynamically,"Objective: Query currently enabled dropdown options and await dependency loads.
+
+Acceptance criteria: Correct valid code/office selected; missing options yield explicit error.
+
+Delivery constraints: WU target <1000 changed lines; PR -> Jenkins -> merge commit; tests and QA evidence; never use real NIF/NIE in public artifacts.",High,"citaradar,v0-1-0,e04,wu,acceptance",E04,WU1
+Task,E04/WU2 — Fill procedure & conditional subprocedure,"Objective: Allow chosen values from actual DOM, auto-select sole valid subprocedure, fail safely on mismatch.
+
+Acceptance criteria: Handle no subprocedure, one, many, stale selection.
+
+Delivery constraints: WU target <1000 changed lines; PR -> Jenkins -> merge commit; tests and QA evidence; never use real NIF/NIE in public artifacts.",High,"citaradar,v0-1-0,e04,wu,acceptance",E04,WU2
+Task,E04/WU3 — Validate and fill local NIF/NIE then navigate,"Objective: Fill safely from OS store/memory only; detect form validation without copying IDs into logs.
+
+Acceptance criteria: No persisted secret in screenshots; navigation robust.
+
+Delivery constraints: WU target <1000 changed lines; PR -> Jenkins -> merge commit; tests and QA evidence; never use real NIF/NIE in public artifacts.",High,"citaradar,v0-1-0,e04,wu,acceptance",E04,WU3
+Task,E05/WU0 — Implement dropdown option discovery,"Objective: Read enabled channel options after entering map step; discard placeholder and disabled items.
+
+Acceptance criteria: 0/1/2/unknown option sets classified and tested.
+
+Delivery constraints: WU target <1000 changed lines; PR -> Jenkins -> merge commit; tests and QA evidence; never use real NIF/NIE in public artifacts.",High,"citaradar,v0-1-0,e05,wu,acceptance",E05,WU0
+Task,E05/WU1 — Ask preferred channel only if both exist,"Objective: When 1 option, use automatically without question; when 2 ask once and save per profile.
+
+Acceptance criteria: One => no dialog, two => dialog, zero => clear blocked state.
+
+Delivery constraints: WU target <1000 changed lines; PR -> Jenkins -> merge commit; tests and QA evidence; never use real NIF/NIE in public artifacts.",High,"citaradar,v0-1-0,e05,wu,acceptance",E05,WU1
+Task,E05/WU2 — Distinguish target channel from refresh channel,"Objective: Alternate channels only as permitted to trigger refresh; evaluate availability only on target channel.
+
+Acceptance criteria: No false positive from non-preferred channel.
+
+Delivery constraints: WU target <1000 changed lines; PR -> Jenkins -> merge commit; tests and QA evidence; never use real NIF/NIE in public artifacts.",High,"citaradar,v0-1-0,e05,wu,acceptance",E05,WU2
+Task,E06/WU0 — Create typed availability result models,"Objective: Office name, municipality, physical address, channel, first slot, selection link/evidence.
+
+Acceptance criteria: Typed output with explicit unknown fields, fixture examples.
+
+Delivery constraints: WU target <1000 changed lines; PR -> Jenkins -> merge commit; tests and QA evidence; never use real NIF/NIE in public artifacts.",Medium,"citaradar,v0-1-0,e06,wu,acceptance",E06,WU0
+Task,E06/WU1 — Parse no availability and office-list states,"Objective: Detect no-appointments message, list with first slots, loading/error state.
+
+Acceptance criteria: No change alone does not count as refresh success.
+
+Delivery constraints: WU target <1000 changed lines; PR -> Jenkins -> merge commit; tests and QA evidence; never use real NIF/NIE in public artifacts.",High,"citaradar,v0-1-0,e06,wu,acceptance",E06,WU1
+Task,E06/WU2 — Filter Barcelona city independently of province,"Objective: Resolve office municipality from validated metadata/whitelist, not free-text Barcelona province.
+
+Acceptance criteria: Barcelona accepted; Terrassa/Sabadell/LHospitalet rejected.
+
+Delivery constraints: WU target <1000 changed lines; PR -> Jenkins -> merge commit; tests and QA evidence; never use real NIF/NIE in public artifacts.",High,"citaradar,v0-1-0,e06,wu,acceptance",E06,WU2
+Task,E06/WU3 — Pause and surface matching office to user,"Objective: Show name, address, channel, first slot and browser position; user books manually.
+
+Acceptance criteria: No automatic continue/confirmation; clear alert.
+
+Delivery constraints: WU target <1000 changed lines; PR -> Jenkins -> merge commit; tests and QA evidence; never use real NIF/NIE in public artifacts.",High,"citaradar,v0-1-0,e06,wu,acceptance",E06,WU3
+Task,E07/WU0 — Define monitoring policy and page-lifecycle constraints,"Objective: Document site terms review, conservative retries, timeouts, max attempts, backoff and jitter.
+
+Acceptance criteria: Rate limits independently enforced; manual stop.
+
+Delivery constraints: WU target <1000 changed lines; PR -> Jenkins -> merge commit; tests and QA evidence; never use real NIF/NIE in public artifacts.",High,"citaradar,v0-1-0,e07,wu,acceptance",E07,WU0
+Task,E07/WU1 — Build event-driven page refresh detector,"Objective: Wait for DOM loading markers/result update after channel change, fallback to timeout.
+
+Acceptance criteria: No fixed sleep-only strategy and no rapid infinite loop.
+
+Delivery constraints: WU target <1000 changed lines; PR -> Jenkins -> merge commit; tests and QA evidence; never use real NIF/NIE in public artifacts.",High,"citaradar,v0-1-0,e07,wu,acceptance",E07,WU1
+Task,E07/WU2 — Handle single-channel refresh without fake toggles,"Objective: When only one channel exists, no alternating. Use only allowed re-query/re-entry or request manual refresh.
+
+Acceptance criteria: Never click same value in tight loop.
+
+Delivery constraints: WU target <1000 changed lines; PR -> Jenkins -> merge commit; tests and QA evidence; never use real NIF/NIE in public artifacts.",High,"citaradar,v0-1-0,e07,wu,acceptance",E07,WU2
+Task,E07/WU3 — Add deduplicated notifications & monitor history,"Objective: Desktop alert + audible option, safe status log, cool-down, cancellation.
+
+Acceptance criteria: One alert per distinct match; no PII in history.
+
+Delivery constraints: WU target <1000 changed lines; PR -> Jenkins -> merge commit; tests and QA evidence; never use real NIF/NIE in public artifacts.",Medium,"citaradar,v0-1-0,e07,wu,acceptance",E07,WU3
+Task,E08/WU0 — Build synthetic SEPE portal fixture,"Objective: Offline HTML test fixture for postal/procedure/subprocedure/channel/map/office.
+
+Acceptance criteria: E2E never reaches live SEPE.
+
+Delivery constraints: WU target <1000 changed lines; PR -> Jenkins -> merge commit; tests and QA evidence; never use real NIF/NIE in public artifacts.",High,"citaradar,v0-1-0,e08,wu,acceptance",E08,WU0
+Task,E08/WU1 — Build channel matrix tests,"Objective: Cover no channels, only presencial, only telephone, both+prompt, placeholder, enabled/disabled.
+
+Acceptance criteria: All channel tests green.
+
+Delivery constraints: WU target <1000 changed lines; PR -> Jenkins -> merge commit; tests and QA evidence; never use real NIF/NIE in public artifacts.",High,"citaradar,v0-1-0,e08,wu,acceptance",E08,WU1
+Task,E08/WU2 — Build office/geography and error-path tests,"Objective: Simulated offices incl Barcelona and Terrassa, no availability, stale DOM, expired session, error.
+
+Acceptance criteria: No false city match and fail-safe behavior.
+
+Delivery constraints: WU target <1000 changed lines; PR -> Jenkins -> merge commit; tests and QA evidence; never use real NIF/NIE in public artifacts.",High,"citaradar,v0-1-0,e08,wu,acceptance",E08,WU2
+Task,E08/WU3 — Create AgileTest test plan/suites/executions,"Objective: Configure v0.1.0 test cases, Smoke/Sanity/Regression and execution evidence as in MUSIC.
+
+Acceptance criteria: Test Plan + Smoke/Regression executions and traceability.
+
+Delivery constraints: WU target <1000 changed lines; PR -> Jenkins -> merge commit; tests and QA evidence; never use real NIF/NIE in public artifacts.",High,"citaradar,v0-1-0,e08,wu,acceptance",E08,WU3
+Task,E08/WU4 — Run supervised manual QA on approved portal,"Objective: Verify actual dropdown/office DOM with explicit human supervision and permitted intervals; no screenshots containing IDs.
+
+Acceptance criteria: Document actual results, deviations and approval; not a CI gate.
+
+Delivery constraints: WU target <1000 changed lines; PR -> Jenkins -> merge commit; tests and QA evidence; never use real NIF/NIE in public artifacts.",Medium,"citaradar,v0-1-0,e08,wu,acceptance",E08,WU4
+Task,E09/WU0 — Implement Python Jenkins pipeline,"Objective: Jenkins stages for format/lint/type/unit/offline E2E, JUnit and artifact archive.
+
+Acceptance criteria: Required checks pass on PR and main/develop.
+
+Delivery constraints: WU target <1000 changed lines; PR -> Jenkins -> merge commit; tests and QA evidence; never use real NIF/NIE in public artifacts.",High,"citaradar,v0-1-0,e09,wu,acceptance",E09,WU0
+Task,E09/WU1 — Add GitHub Actions optional checks,"Objective: Run offline unit/E2E on pushes/PRs, dependency security check, no real SEPE access.
+
+Acceptance criteria: Workflow passes on public fork without secrets.
+
+Delivery constraints: WU target <1000 changed lines; PR -> Jenkins -> merge commit; tests and QA evidence; never use real NIF/NIE in public artifacts.",Medium,"citaradar,v0-1-0,e09,wu,acceptance",E09,WU1
+Task,E09/WU2 — Configure branch policies and release management,"Objective: Protection main/develop, merge commits only, release tags, changelog/CI evidence.
+
+Acceptance criteria: Release checklist and PR merge policy documented.
+
+Delivery constraints: WU target <1000 changed lines; PR -> Jenkins -> merge commit; tests and QA evidence; never use real NIF/NIE in public artifacts.",High,"citaradar,v0-1-0,e09,wu,acceptance",E09,WU2
+Task,E09/WU3 — Package Linux desktop binary and install docs,"Objective: Test PyInstaller/AppImage suitability; document Arch Linux and Windows setup.
+
+Acceptance criteria: Clean install launches desktop/browser with no credentials embedded.
+
+Delivery constraints: WU target <1000 changed lines; PR -> Jenkins -> merge commit; tests and QA evidence; never use real NIF/NIE in public artifacts.",Medium,"citaradar,v0-1-0,e09,wu,acceptance",E09,WU3
+Task,E10/WU0 — Design optional n8n webhook contract,"Objective: Notification payload only: event type, no DNI and no session tokens.
+
+Acceptance criteria: Disabled by default and authenticated if enabled.
+
+Delivery constraints: WU target <1000 changed lines; PR -> Jenkins -> merge commit; tests and QA evidence; never use real NIF/NIE in public artifacts.",Low,"citaradar,v0-1-0,e10,wu,acceptance",E10,WU0
+Task,E10/WU1 — Add opt-in notification integration,"Objective: Send redacted match event over configured HTTPS/Tailscale endpoint; graceful fallback local.
+
+Acceptance criteria: No dependence on homelab, timeout/failure never blocks UI.
+
+Delivery constraints: WU target <1000 changed lines; PR -> Jenkins -> merge commit; tests and QA evidence; never use real NIF/NIE in public artifacts.",Low,"citaradar,v0-1-0,e10,wu,acceptance",E10,WU1
