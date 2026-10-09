@@ -1,0 +1,215 @@
+{
+  "schema_version": 1,
+  "source": "Canonical CitaRadar Gherkin audit; Jira CITA-104..CITA-129",
+  "execution_state": "specifications_only",
+  "cases": [
+    {
+      "id": "FORM-001",
+      "key": "CITA-104",
+      "title": "FORM-001 — Código postal y tipo de oficina",
+      "suite": "Smoke",
+      "feature": "features/formulario-sepe.feature",
+      "automation": "not_implemented"
+    },
+    {
+      "id": "FORM-002",
+      "key": "CITA-105",
+      "title": "FORM-002 — Trámite con un único subtrámite",
+      "suite": "Smoke",
+      "feature": "features/formulario-sepe.feature",
+      "automation": "not_implemented"
+    },
+    {
+      "id": "FORM-003",
+      "key": "CITA-106",
+      "title": "FORM-003 — Trámite con múltiples subtrámites",
+      "suite": "Regression",
+      "feature": "features/formulario-sepe.feature",
+      "automation": "not_implemented"
+    },
+    {
+      "id": "FORM-004",
+      "key": "CITA-107",
+      "title": "FORM-004 — Trámite sin campo de subtrámite",
+      "suite": "Regression",
+      "feature": "features/formulario-sepe.feature",
+      "automation": "not_implemented"
+    },
+    {
+      "id": "FORM-005",
+      "key": "CITA-108",
+      "title": "FORM-005 — Trámite cambia opciones disponibles",
+      "suite": "Regression",
+      "feature": "features/formulario-sepe.feature",
+      "automation": "not_implemented"
+    },
+    {
+      "id": "FORM-006",
+      "key": "CITA-109",
+      "title": "FORM-006 — NIF/NIE no aparece en logs",
+      "suite": "Smoke",
+      "feature": "features/formulario-sepe.feature",
+      "automation": "not_implemented"
+    },
+    {
+      "id": "CHANNEL-001",
+      "key": "CITA-110",
+      "title": "CHANNEL-001 — Canales presencial y telefónica",
+      "suite": "Smoke",
+      "feature": "features/canales.feature",
+      "automation": "not_implemented"
+    },
+    {
+      "id": "CHANNEL-002",
+      "key": "CITA-111",
+      "title": "CHANNEL-002 — Solo presencial",
+      "suite": "Smoke",
+      "feature": "features/canales.feature",
+      "automation": "not_implemented"
+    },
+    {
+      "id": "CHANNEL-003",
+      "key": "CITA-112",
+      "title": "CHANNEL-003 — Solo telefónica",
+      "suite": "Smoke",
+      "feature": "features/canales.feature",
+      "automation": "not_implemented"
+    },
+    {
+      "id": "CHANNEL-004",
+      "key": "CITA-113",
+      "title": "CHANNEL-004 — Sin canales habilitados",
+      "suite": "Regression",
+      "feature": "features/canales.feature",
+      "automation": "not_implemented"
+    },
+    {
+      "id": "CHANNEL-005",
+      "key": "CITA-114",
+      "title": "CHANNEL-005 — Ignorar placeholder y disabled",
+      "suite": "Regression",
+      "feature": "features/canales.feature",
+      "automation": "not_implemented"
+    },
+    {
+      "id": "CHANNEL-006",
+      "key": "CITA-115",
+      "title": "CHANNEL-006 — Canal objetivo no mezclado en refresh",
+      "suite": "Regression",
+      "feature": "features/canales.feature",
+      "automation": "not_implemented"
+    },
+    {
+      "id": "OFFICE-001",
+      "key": "CITA-116",
+      "title": "OFFICE-001 — Sin citas disponibles",
+      "suite": "Smoke",
+      "feature": "features/oficinas.feature",
+      "automation": "not_implemented"
+    },
+    {
+      "id": "OFFICE-002",
+      "key": "CITA-117",
+      "title": "OFFICE-002 — Oficina válida en Barcelona ciudad",
+      "suite": "Smoke",
+      "feature": "features/oficinas.feature",
+      "automation": "not_implemented"
+    },
+    {
+      "id": "OFFICE-003",
+      "key": "CITA-118",
+      "title": "OFFICE-003 — Oficina en Terrassa descartada",
+      "suite": "Smoke",
+      "feature": "features/oficinas.feature",
+      "automation": "not_implemented"
+    },
+    {
+      "id": "OFFICE-004",
+      "key": "CITA-119",
+      "title": "OFFICE-004 — Barcelona provincia no equivale a municipio",
+      "suite": "Regression",
+      "feature": "features/oficinas.feature",
+      "automation": "not_implemented"
+    },
+    {
+      "id": "OFFICE-005",
+      "key": "CITA-120",
+      "title": "OFFICE-005 — Oficina con municipio desconocido",
+      "suite": "Regression",
+      "feature": "features/oficinas.feature",
+      "automation": "not_implemented"
+    },
+    {
+      "id": "MONITOR-001",
+      "key": "CITA-121",
+      "title": "MONITOR-001 — Refresco espera actualización efectiva",
+      "suite": "Regression",
+      "feature": "features/monitorizacion.feature",
+      "automation": "not_implemented"
+    },
+    {
+      "id": "MONITOR-002",
+      "key": "CITA-122",
+      "title": "MONITOR-002 — Canal único no alternable",
+      "suite": "Regression",
+      "feature": "features/monitorizacion.feature",
+      "automation": "not_implemented"
+    },
+    {
+      "id": "MONITOR-003",
+      "key": "CITA-123",
+      "title": "MONITOR-003 — Sesión caducada",
+      "suite": "Smoke",
+      "feature": "features/monitorizacion.feature",
+      "automation": "not_implemented"
+    },
+    {
+      "id": "MONITOR-004",
+      "key": "CITA-124",
+      "title": "MONITOR-004 — Error de red / portal",
+      "suite": "Regression",
+      "feature": "features/monitorizacion.feature",
+      "automation": "not_implemented"
+    },
+    {
+      "id": "MONITOR-005",
+      "key": "CITA-125",
+      "title": "MONITOR-005 — Detención manual",
+      "suite": "Smoke",
+      "feature": "features/monitorizacion.feature",
+      "automation": "not_implemented"
+    },
+    {
+      "id": "MONITOR-006",
+      "key": "CITA-126",
+      "title": "MONITOR-006 — Alerta duplicada",
+      "suite": "Regression",
+      "feature": "features/monitorizacion.feature",
+      "automation": "not_implemented"
+    },
+    {
+      "id": "SEC-001",
+      "key": "CITA-127",
+      "title": "SEC-001 — Perfil seguro en disco",
+      "suite": "Regression",
+      "feature": "features/seguridad.feature",
+      "automation": "not_implemented"
+    },
+    {
+      "id": "SEC-002",
+      "key": "CITA-128",
+      "title": "SEC-002 — No usar claves permanentes",
+      "suite": "Regression",
+      "feature": "features/seguridad.feature",
+      "automation": "not_implemented"
+    },
+    {
+      "id": "E2E-001",
+      "key": "CITA-129",
+      "title": "E2E-001 — Portal simulado sin tráfico externo",
+      "suite": "Smoke",
+      "feature": "features/e2e-portal-simulado.feature",
+      "automation": "not_implemented"
+    }
+  ]
+}

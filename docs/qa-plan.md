@@ -1,10 +1,21 @@
-# QA / BDD v0.1.0 (AgileTest model based on MUSIC)
+# QA / BDD v0.1.0 — CitaRadar
 
-- Suites: `CitaRadar — Smoke`, `CitaRadar — Sanity`, `CitaRadar — Regression`.
-- Release Test Plan: `v0.1.0 — SEPE Desktop PoC QA`.
-- Test Executions: `v0.1.0 RC1 — Smoke`, `v0.1.0 RC1 — Regression`.
-- 26 authored draft test cases in `planning/qa-agiletest-cases.csv` (offline fixtures only).
-- Acceptance: all Smoke and required Regression passed, Jenkins and optional GitHub Actions green, 0 unaccepted blockers, no PII leakage, manual real-portal checks only when approved.
-- Traceability: each WU issue links tests, PR, commit/build SHA and QA evidence; do not reuse a historical test execution as a new one.
-- E2E fixtures simulate single/both/zero channel choices, procedures with 0/1/many subprocedures, offices in Barcelona vs Terrassa, session expiry, errors and no availability.
-- Live SEPE is never contacted by CI.
+- Existing AgileTest suite **CitaRadar v0.1 — Smoke**: 12 Test Cases.
+- Existing AgileTest suite **CitaRadar v0.1 — Regression**: 14 Test Cases.
+- Test Plan **CITA-73**: 26 Test Cases; planned Smoke execution **CITA-74**
+  and planned Regression execution **CITA-75** (no PASS results claimed).
+- Existing Jira Test Cases **CITA-104 through CITA-129**. Do not import
+  duplicate test cases or reuse historical execution results.
+- Six canonical Gherkin source files: `features/*.feature`.
+- Source-to-Jira manifest: `planning/bdd-manifest.json`.
+- WU0 (`CITA-130`) checks only parseability and traceability, **not** the
+  actual behavioral steps. See `docs/bdd.md` for automation status.
+
+## Acceptance and safety
+
+- Smoke/Regression must eventually run against deterministic offline
+  fixtures and a local synthetic portal; never live SEPE in CI.
+- Require Jenkins PR merge gate, preserve merge-commit-only flow.
+- Acceptance needs recorded QA evidence, no unaccepted blockers and
+  no sensitive identifiers, credentials or browser profiles in artifacts.
+- Portal checks, if ever permitted, need explicit supervised user approval.
