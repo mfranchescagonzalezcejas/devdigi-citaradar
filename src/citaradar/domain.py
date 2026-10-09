@@ -2,6 +2,7 @@
 from dataclasses import dataclass
 from enum import Enum
 
+
 class Channel(str, Enum):
     IN_PERSON = "presencial"
     PHONE = "telefonica"

@@ -1,5 +1,5 @@
 pipeline {
-    agent any
+    agent { label 'victus-android' }
     stages {
         stage('Checkout') { steps { checkout scm } }
         stage('Setup') {
