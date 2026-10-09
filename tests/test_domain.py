@@ -1,8 +1,15 @@
 import pytest
+
 from citaradar.domain import (
-    Channel, ChannelDecisionError, NoChannelAvailable, Office,
-    PreferenceRequired, decide_channel, office_matches,
+    Channel,
+    ChannelDecisionError,
+    NoChannelAvailable,
+    Office,
+    PreferenceRequired,
+    decide_channel,
+    office_matches,
 )
+
 
 @pytest.mark.parametrize("only", [Channel.IN_PERSON, Channel.PHONE])
 def test_single_option_selected_automatically(only):
